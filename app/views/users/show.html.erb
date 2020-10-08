@@ -1,2 +1,28 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="body">
+  <div class="container">
+    <div class="user_show">
+      <div class="profile_image">
+        <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg" %>
+      </div>
+      <div class="row">
+        <h3 class="username">Nmae</h3><%= @user.username %>
+      </div>
+      <% if @user.id == current_user.id %>
+        <div class="row">
+          <h3 class="email">Email</h3><%= @user.email %>
+        </div>
+        <div class="row">
+          <%= link_to "編集", edit_user_path(@user) %>
+        </div>
+      <% end %>
+      <div class="row">
+        <h3 class="profile">Profile</h3><%= @user.profile %>
+      </div>
+    </div>
+    <%= link_to "一覧", users_path %>
+  </div>
+</div>
+
+
+
+
