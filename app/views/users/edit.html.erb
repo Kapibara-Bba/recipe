@@ -1,27 +1,29 @@
 <div class="body">
   <div class="container">
     <div class="row">
-      <%= form_with model:@user, local:true do |f| %>
-        <div class="row">
-          <%= f.label :username %>
-          <%= f.text_field :username %>
-        </div>
-        <div class="row">
-          <%= f.label :email %>
-          <%= f.text_field :email %>
-        </div>
-        <div class="row">
-          <%= f.label :profile %>
-          <%= f.text_field :profile %>
-        </div>
-        <div class="row">
-          <%= f.label :profile_image %>
-          <%= f.attachment_field :profile_image %>
-        </div>
-        <div class="row">
-          <%= f.submit %>
-        </div>
-      <% end %>
+      <div class="user-edit col-xs-offset-3 col-xs-6">
+        <%= form_with model:@user, local:true do |f| %>
+          <div class="row">
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+          </div>
+          <div class="row">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          </div>
+          <div class="row">
+            <%= f.label :profile %>
+            <%= f.text_area :profile %>
+          </div>
+          <div class="row">
+            <%= f.label :profile_image %>
+            <%= f.attachment_field :profile_image %>
+          </div>
+          <div class="row">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
