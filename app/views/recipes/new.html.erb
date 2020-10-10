@@ -1,12 +1,28 @@
-<%= form_with @recipe do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :body %>
-  <%= f.text_area %>
-
-  <%= f.label :image %>
-  <%= f.attachment_field :image %>
-
-  <%= f.submit %>
-<% end %>
+<div class="body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-3 col-xs-6">
+        <div class="row">
+          <h3 class="new-recipe">NEW RECIPE</h3>
+        </div>
+        <div class="row">
+          <%= form_with model:@recipe, local:true do |f| %>
+            <div class="row">
+              <label for="title">レシピ名</label>
+              <%= f.text_field :title %>
+            </div>
+            <div class="row">
+              <label for="body">作り方</label>
+              <%= f.text_area :body, size: '60x3' %>
+            </div>
+            <div class="row">
+              <label for="image">写真</label>
+              <%= f.attachment_field :image %>
+            </div>
+            <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
