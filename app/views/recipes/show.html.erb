@@ -1,6 +1,30 @@
-<%= attachment_image_tag @recipe, :image %>
-
-<%= @recipe.title %>
-
-<%= simple_format @recipe.body %>
+<div class="body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-offset-3 col-xs-6">
+        <div class="row">
+          <h2>RECIPE</h2>
+        </div>
+        <div class="row">
+          <h4>写真</h4>
+          <%= attachment_image_tag @recipe, :image, :fill, 200, 200, fallback: 'no_image.jpg', size:'200x200' %>
+        </div>
+        <div class="row">
+          <h4>レシピ名</h4>
+          <%= @recipe.title %>
+        </div>
+        <div class="row">
+          <table class="recipe-show">
+            <tr>
+              <th>作り方</th>
+            </tr>
+            <tr>
+              <td><%= simple_format @recipe.body %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
