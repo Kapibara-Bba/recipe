@@ -1,13 +1,13 @@
 <div class="body">
   <div class="container">
     <div class="row">
-      <div class="col-xs-offset-3 col-xs-6">
+      <div class="col-xs-6">
         <div class="row">
           <h2>RECIPE</h2>
         </div>
         <div class="row">
           <h4>写真</h4>
-          <%= attachment_image_tag @recipe, :image, :fill, 200, 200, fallback: 'no_image.jpg', size:'200x200' %>
+          <%= attachment_image_tag @recipe, :image, :fill, 500, 500, fallback: 'no_image.jpg', size:'500x500' %>
         </div>
         <div class="row">
           <h4>レシピ名</h4>
@@ -22,9 +22,30 @@
               <td><%= simple_format @recipe.body %></td>
             </tr>
           </table>
+           <% if @recipe.user.id == current_user.id %>
+             <%= link_to "編集", edit_recipe_path(@recipe), class: 'btn btn-success' %>
+           <% end %>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="user-path-field">
+          <div class="row">
+            <div class="recipe-username">
+              <%= @recipe.user.username %>
+            </div>
+            <div class="row">
+              <div class="recipe-user-show">
+                <%= link_to user_path(@recipe.user) do %>
+                  <%= @recipe.user.username %>さんのページへ
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
