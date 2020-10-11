@@ -1,28 +1,37 @@
 <div class="body">
   <div class="container">
     <div class="user_show">
-      <div class="profile_image">
-        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-      </div>
-      <div class="row">
-        <h3 class="username">Nmae</h3><%= @user.username %>
-      </div>
-      <% if @user.id == current_user.id %>
-        <div class="row">
-          <h3 class="email">Email</h3><%= @user.email %>
-        </div>
-        <div class="row">
-          <%= link_to "編集", edit_user_path(@user) %>
-        </div>
-      <% end %>
-      <div class="row">
-        <h3 class="profile">Profile</h3><%= @user.profile %>
-      </div>
+      <table>
+        <tr>
+          <th>
+            <div class="profile_image">
+              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+            </div>
+          </th>
+          <th>
+            <h3 class="username">Nmae</h3><%= @user.username %>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <% if @user.id == current_user.id %>
+                <h3 class="email">Email</h3><%= @user.email %>
+              <div class="row">
+                <%= link_to "編集", edit_user_path(@user) %>
+              </div>
+            <% end %>
+          </td>
+          <td>
+            <h3 class="profile">Profile</h3><%= @user.profile %>
+          </td>
+        </tr>
+      </table>
     </div>
-    <%= link_to "一覧", users_path %>
+    <div class="row">
+      <%= link_to "レシピグラマー一覧", users_path %>
+    </div>
   </div>
 </div>
-
 
 
 
