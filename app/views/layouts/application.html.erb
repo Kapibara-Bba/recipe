@@ -34,6 +34,9 @@
                   <%= link_to "マイページ", user_path(current_user), class: "btn btn-info" %>
                 </li>
                 <li class="">
+                  <%= link_to "新規投稿", new_recipe_path, class: "btn btn-info" %>
+                </li>
+                <li class="">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-info" %>
                 </li>
               <% else %>

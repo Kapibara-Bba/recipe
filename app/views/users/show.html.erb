@@ -5,7 +5,7 @@
         <tr>
           <th>
             <div class="profile_image">
-              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' %>
             </div>
           </th>
           <th>
@@ -28,10 +28,21 @@
       </table>
     </div>
     <div class="row">
-      <%= link_to "レシピグラマー一覧", users_path %>
+      <%= link_to "レシピ一覧", recipes_path %>
     </div>
+    <% @user.recipes.each do |recipe| %>
+    <div class="col-xs-3">
+      <div class="user-recipe">
+        <%= attachment_image_tag recipe, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' %>
+        <div class="row">
+          <%= link_to "詳細", recipe_path(recipe) %>
+          <% if @user.id == current_user.id %>
+            <%= link_to "編集", edit_recipe_path(recipe) %>
+            <%= link_to "削除", recipe_path(recipe), method: :detele, "data-confirm" => "Are you sure?", class: 'btn btn-danger' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-
-
-
