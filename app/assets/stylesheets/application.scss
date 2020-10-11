@@ -23,6 +23,13 @@
   box-sizing: border-box;
  }
 
+.main-image {
+ height: 940px;
+ background-image: url(no_image_jpg);
+ background-repeat: none;
+ background-size: contain;
+}
+
  .row {
   margin: 20px;
  }
